@@ -70,12 +70,9 @@ export const staticRoutes: Array<RouteRecordRaw> = [
   },
   {
     path: '/product/spu2/list',
-    name: 'Spu2',
+   
     component: () => import('@/layout/index.vue'),
-    meta: {
-      title: 'SPU管理重构',
-      icon: 'ele-HomeFilled',
-    },
+   
     children:[
       {
         path: '/product/spu2/list',

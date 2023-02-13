@@ -4,6 +4,7 @@
 给了属性<myBar :size="size" :width="500" :length="6" color="#99F0B2"></myBar>
 给了属性<myBar :size="size" :length="20" color="pink"></myBar>
 没给props<myBar ></myBar>
+
 <!-- <myBar ></myBar> -->
 
   <El-button @click="size++"> +</El-button>
