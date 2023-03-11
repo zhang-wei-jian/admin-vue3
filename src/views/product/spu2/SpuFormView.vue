@@ -21,7 +21,7 @@
             :action="uploadUrl"
             :show-file-list="true"
             list-type="picture-card"
-            v-model:file-list="spuImageList"
+            v-model:file-list="uploadImageList"
           >
             <el-icon class="avatar-uploader-icon"><Plus /></el-icon>
           </el-upload>
@@ -51,12 +51,12 @@
                   ref="inputRef"
                   style="width: 80px"
                 ></el-input>
-                <el-button @click="row;"> 添加 </el-button>
+                <el-button @click="row"> 添加 </el-button>
               </template>
             </el-table-column>
             <el-table-column label="操作" prop="">
               <template v-slot="{ row }">
-                <el-button type="danger" @click="row;">删除</el-button>
+                <el-button type="danger" @click="row">删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -71,8 +71,9 @@
 </template>
 
 <script lang="ts" setup>
+import { ref, toRefs } from 'vue'
 import { useFormData } from './formData'
 
-const { spuFormData,trademarkList } = useFormData()
-const uploadUrl =  import.meta.env.VITE_API_URL   // /admin/product/upload
+const { spuFormData, trademarkList, uploadImageList } = useFormData()
+const uploadUrl = import.meta.env.VITE_API_URL + '/admin/product/upload' // /admin/product/upload
 </script>

@@ -34,7 +34,7 @@ export function reqAddSpu(data: Omit<AddSpuType, 'id'>) {
 export function reqImageList(id: number) {
   return request.get<any, SpuImageList[]>(Apis.ImageList + id)
 }
-// 添加修改的销售列表
+// 销售列表
 export function reqSpuSelectList(id: number) {
   return request.get<any, SpuSaleAttrList[]>(Apis.spuSelect + id)
 }

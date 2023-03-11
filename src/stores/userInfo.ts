@@ -95,16 +95,19 @@ export const useUserInfoStore = defineStore('userInfo', {
         // this.menuRoutes.push(...userMenu)
         // //////////////////递归////////////////////////////////
         const filterRoutes = (arr: RouteRecordRaw[], routes: any) => {
-          return arr.filter(item => {
+
+          return JSON.parse(JSON.stringify(arr)).filter((item: RouteRecordRaw) => {
+            // 可读性并不差，只是我需要修改修改数组中对象的属性，并不想影响到原来的值
             if (!routes.includes(item.name)) return false
             if (item.children && item.children.length) {
-              item.children = filterRoutes(item.children, routes)
+              // item.children = filterRoutes(item.children, routes)
+              item.children = []
             }
-            return '当前的children没有改是是因为，递归完事后并没有去改变当前item，还是不递归的返回全部'
+            return '修改地址中的属性，影响原数组属性了，我要克隆一份'
           })
         }
         const resRoutersList = filterRoutes(allAsyncRoutes, this.routes)
-        // console.log(resImgList, '处理完成的图片')
+        console.log(resRoutersList, '处理完成的数组')
 
         resRoutersList.forEach(item => {
           this.menuRoutes.push(item)
